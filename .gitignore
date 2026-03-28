@@ -1,0 +1,10 @@
+Code/b2b_backend/serviceAccountKey.json
+.vscode/
+__pycache__/
+*.pyc
+db.sqlite3
+.env
+node_modules/
+dist/
+build/
+.DS_Store
