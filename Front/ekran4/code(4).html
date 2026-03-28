@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CURATED WAREHOUSE | B2B Wholesale Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#454652",
+              "surface-dim": "#d9dadb",
+              "on-surface": "#191c1d",
+              "on-secondary-fixed": "#071e27",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#e17c5a",
+              "primary-fixed-dim": "#bdc2ff",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#ffb59d",
+              "inverse-surface": "#2e3132",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f3f4f5",
+              "surface-container": "#edeeef",
+              "secondary-container": "#cfe6f2",
+              "on-tertiary-fixed": "#390c00",
+              "tertiary-container": "#5c1800",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-container": "#526772",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#343d96",
+              "outline-variant": "#c6c5d4",
+              "secondary": "#4c616c",
+              "on-primary-fixed": "#000767",
+              "tertiary-fixed": "#ffdbd0",
+              "secondary-fixed": "#cfe6f2",
+              "surface-bright": "#f8f9fa",
+              "primary-fixed": "#e0e0ff",
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#380b00",
+              "on-secondary-fixed-variant": "#354a53",
+              "on-background": "#191c1d",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#7b2e12",
+              "secondary-fixed-dim": "#b4cad6",
+              "on-primary-container": "#8690ee",
+              "primary": "#000666",
+              "surface-tint": "#4c56af",
+              "background": "#f8f9fa",
+              "outline": "#767683",
+              "error": "#ba1a1a",
+              "inverse-primary": "#bdc2ff",
+              "primary-container": "#1a237e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .active-nav-link {
+        position: relative;
+      }
+      .active-nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #000666;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#000666] dark:text-white font-headline">CURATED WAREHOUSE</span>
+<nav class="hidden md:flex gap-6 font-['Manrope'] text-sm tracking-wide">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#000666] transition-colors" href="#">Catalog</a>
+<a class="text-[#000666] dark:text-blue-400 font-semibold border-b-2 border-[#000666] pb-1" href="#">My Orders</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#000666] transition-colors" href="#">My Account</a>
+</nav>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-low rounded-lg text-sm font-medium">
+<span class="material-symbols-outlined text-primary" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-primary">Cart (12 items / 4,850 TL)</span>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-6 py-12">
+<!-- Hero Section: Intent Selection -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+<!-- Women's Slippers Selection -->
+<button class="group relative overflow-hidden bg-white aspect-[16/9] md:aspect-[4/3] flex flex-col items-center justify-center p-12 transition-all duration-500 hover:bg-surface-container-lowest hover:shadow-2xl">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary to-transparent"></div>
+</div>
+<span class="material-symbols-outlined text-6xl mb-6 text-tertiary transition-transform duration-500 group-hover:scale-110" data-icon="dresser">dresser</span>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">WOMEN'S SLIPPERS</h2>
+<p class="text-secondary uppercase tracking-[0.2em] text-xs font-semibold">Premium B2B Collection</p>
+<div class="mt-8 px-6 py-2 border border-outline/20 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    EXPLORE CATEGORY
+                </div>
+</button>
+<!-- Men's Slippers Selection -->
+<button class="group relative overflow-hidden bg-white aspect-[16/9] md:aspect-[4/3] flex flex-col items-center justify-center p-12 transition-all duration-500 hover:bg-surface-container-lowest hover:shadow-2xl">
+<div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+<div class="absolute inset-0 bg-gradient-to-br from-primary to-transparent"></div>
+</div>
+<span class="material-symbols-outlined text-6xl mb-6 text-primary transition-transform duration-500 group-hover:scale-110" data-icon="step">step</span>
+<h2 class="font-headline text-3xl font-extrabold tracking-tight text-on-surface mb-2">MEN'S SLIPPERS</h2>
+<p class="text-secondary uppercase tracking-[0.2em] text-xs font-semibold">Luxury Wholesale Range</p>
+<div class="mt-8 px-6 py-2 border border-outline/20 group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    EXPLORE CATEGORY
+                </div>
+</button>
+</section>
+<!-- New Arrivals / Best Sellers -->
+<section>
+<div class="flex justify-between items-end mb-12">
+<div>
+<span class="text-primary font-bold tracking-[0.3em] text-xs uppercase block mb-2">Curated Selection</span>
+<h3 class="font-headline text-4xl font-extrabold text-on-surface">New Arrivals</h3>
+</div>
+<a class="text-primary font-semibold flex items-center gap-2 group" href="#">
+                    View Full Catalog 
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Editorial Product Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of luxury wool slippers on minimalist background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC23ASUI-9AjlXLRHZqqUjCE9t6Gj--wofdhbKcCtZwYizJJrbbaevyvx3iC8EBbytPztgWPNeq3MbssnAg7n207uNOTd3j7bbumTN3sadmbOArrNqhDx8eNSWb6MIj1_5PqiuIeZQJ7VlMjIWKsMBx6URMx-IjgCcTVq-sX5NenX1foR7y8OuddP9DhLTToba53hcEgg5cpmbgBqbdkrx-0IURfs_fw4NFk6uCFhRmyFkr8r2BCk498BGntosuW923Z6GcJXf4kPhx"/>
+</div>
+<div class="px-1">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">In Stock: 450 Units</span>
+<h4 class="font-headline font-bold text-lg text-on-surface leading-tight mt-1">Heritage Wool Loafer</h4>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-primary font-extrabold">24.50 TL</span>
+<span class="text-xs text-secondary">/ Wholesale Unit</span>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Beige suede house slippers minimalist product shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPces2dTAFn9OvdfHHD1gMuv3g1ncSnwwyS79b55w0B2jv8WLo9tAjxSTuQ3vkuG8Qz5H-b5D1WSjg5I4GIY9SGiuXTPcMpSoMVgu55RwlIg1wQCkxbebyklllCJWu0rpwFlyItfkq445oOTBfOqmau_Z80uzSZk7MyyOuYoRVBE6vz9776_n8D0QWEcBCoBgt-9RJ4P6aVCmAEdslBGjw13k6sbHWSJtKN_swQLgvlPSRmaO4NUiD_KZnRMbjhCAf4jRByhL_8sxa"/>
+</div>
+<div class="px-1">
+<span class="text-[10px] uppercase tracking-widest text-tertiary font-bold">Best Seller</span>
+<h4 class="font-headline font-bold text-lg text-on-surface leading-tight mt-1">Suede Comfort Slide</h4>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-primary font-extrabold">18.90 TL</span>
+<span class="text-xs text-secondary">/ Wholesale Unit</span>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer lg:col-span-1">
+<div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dark gray felt slippers on white floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4OV3KBc-2LVJBoTJb1hXEHAaV-HS3GsDUfGfYtQw1RrFXX1jknYFP0BxS0xz_JWZNkJYtb9yLdCRIqY38w8FThraeFr_APtms-2zGRinnGNH6-Su1WifSfGew_MoX58JDUVKL6xoN8jajBaAI__FdGCsDlU7Bw9YXNppmbdtQo-iPckh8jBmxIeZoGdGFxcXeGM3PYEc2eib0e6FMPGuU-SCnUP-OJBICSmkEsfbYSyygMcQ0tYf-ZOjSCU9AnX6EAaADwPwZ6OmP"/>
+</div>
+<div class="px-1">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">In Stock: 120 Units</span>
+<h4 class="font-headline font-bold text-lg text-on-surface leading-tight mt-1">Nordic Felt Mule</h4>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-primary font-extrabold">32.00 TL</span>
+<span class="text-xs text-secondary">/ Wholesale Unit</span>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="White hotel style fluffy slippers product image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD25FfGY84lVqVlG86rXzDOKVzzWYigmc_A2v5FMlzeJVPRsf0_k0IOLfdCNuDqSuodfesFWtUh2h1yxm86HWFxYtoLiiUPFgiTq9ztxTo90bWenCeOLL-_ETSys_cMKdOaFh-ndGFA57_36YQ6vHeiO6yXkFrV7_Z0v2DOSUyXsyk-aYp-X8OZ4fVARpQa0jc3MOwkTtxrbxVKCh_l-jHQLxuurFt9H1sNtglktJVY4TKKrXytTvGB24H5fSiTZpWqeFIEuvdxb10R"/>
+</div>
+<div class="px-1">
+<span class="text-[10px] uppercase tracking-widest text-secondary font-bold">Volume Pricing</span>
+<h4 class="font-headline font-bold text-lg text-on-surface leading-tight mt-1">Cloud Cotton Terry</h4>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-primary font-extrabold">12.50 TL</span>
+<span class="text-xs text-secondary">/ Wholesale Unit</span>
+</div>
+</div>
+</div>
+<!-- Product 5 -->
+<div class="group cursor-pointer">
+<div class="aspect-[3/4] bg-surface-container-low mb-4 overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium leather slippers dark brown editorial shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiZudwiaYe06QxlQFYJ8JrsWZJDYPLWwxtM7jdGSPeYqtPnD-_BKaJ9DLiioNCvbDm0C2z4ixc8B8VouObhJ-FdkocL6Lxku_cdyKvAl9FRO4xdlMnBEdwX7tE2bMR0AwQFKZCA-hwfSlM3xYIj_iicEG5UaZqb9E9OEplRghIY21Y1OpO0eSE_S1ID16mU7RmgJKX0oJiWCtzAGkxGGq1b8JKOu6KL_fuoJEagaA-LhE-BcJ4FwqqLxJ4JUT_D56RSaUm7x6nbGv0"/>
+</div>
+<div class="px-1">
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold">Premium Range</span>
+<h4 class="font-headline font-bold text-lg text-on-surface leading-tight mt-1">Artisan Leather Slipper</h4>
+<div class="flex items-baseline gap-2 mt-2">
+<span class="text-primary font-extrabold">58.00 TL</span>
+<span class="text-xs text-secondary">/ Wholesale Unit</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Informational Strip -->
+<section class="mt-24 bg-surface-container-low p-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="local_shipping">local_shipping</span>
+<div>
+<h5 class="font-headline font-bold text-lg">Next-Day Dispatch</h5>
+<p class="text-sm text-secondary">On all wholesale orders over 5,000 TL</p>
+</div>
+</div>
+<div class="h-px w-24 bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="verified">verified</span>
+<div>
+<h5 class="font-headline font-bold text-lg">Quality Guaranteed</h5>
+<p class="text-sm text-secondary">Strict QC for bulk batch processing</p>
+</div>
+</div>
+<div class="h-px w-24 bg-outline-variant/30 hidden md:block"></div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="support_agent">support_agent</span>
+<div>
+<h5 class="font-headline font-bold text-lg">B2B Account Manager</h5>
+<p class="text-sm text-secondary">24/7 dedicated support for retailers</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-white dark:bg-slate-950 pb-safe z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-200/30">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-['Inter']">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="text-[10px] font-['Inter']">Catalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-400 font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="text-[10px] font-['Inter']">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-['Inter']">Account</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-[10px] font-['Inter']">Cart</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,336 @@
+B2B AYAKKABI TOPTAN SİPARİŞ
+YÖNETİM PLATFORMU
+─────────────────────────────
+Fonksiyonel Gereksinim Şartnamesi (FRS)
+Teknik Şartname (TS)
+Versiyon
+v1.0
+Durum
+Taslak
+Süre
+1.5 Hafta
+Tarih
+Mart 2026
+Proje Özeti
+Bu doküman, B2B tabanlı ayakkabı toptan satış platformunun tasarım, geliştirme ve teslim süreçlerini yöneten temel referans kaynağıdır. Bayi girişi, ürün kataloğu, renk/beden sipariş matrisi ve stok yönetimini kapsayan bu platform; React + Django + Firebase teknolojileri üzerine 10 günlük sprint planı çerçevesinde inşa edilecektir.
+Gizli & Dahili Kullanım İçin
+1. FONKSİYONEL GEREKSİNİM ŞARTNAMESİ (FRS)
+Bu bölüm, platformun kullanıcı deneyimi, ekran akışları, sipariş mekanizması ve stok entegrasyonu dahil tüm işlevsel gereksinimlerini kapsamaktadır. Her gereksinim, birincil kaynak olarak kabul edilmeli ve geliştirme sürecinde referans alınmalıdır.
+1.1 Kullanıcı Deneyimi ve Arayüz Akışı
+1.1.1 Giriş Sayfası (Authentication)
+Platform, yalnızca yetkili bayilerin (dükkan sahipleri) erişebildiği kapalı bir B2B sistemidir. Kimlik doğrulama altyapısı Firebase Authentication servisi üzerine kurulur.
+Kural ID
+Güvenlik Kuralı
+AUTH-01
+Giriş yapmamış kullanıcılar hiçbir ürün fiyatına, stok bilgisine veya sipariş matrisine erişemez.
+AUTH-02
+Yetkisiz erişim denemesi otomatik olarak login sayfasına yönlendirir (Protected Route).
+AUTH-03
+Firebase ID Token, her API isteğinde Authorization: Bearer header'ı ile iletilir.
+AUTH-04
+Oturum süresi dolduğunda kullanıcı, oturumunu yenilemeden işlem yapamaz.
+1.1.2 Cinsiyet Bazlı Ana Menü
+Kullanıcı girişinin ardından karşılama ekranında iki büyük kategori butonu sunulur. Bu seçim, uygulama genelinde tüm ürün listelerini filtreleyen global bir durum değişkenine atanır.
+KADIN Kategorisi
+ERKEK Kategorisi
+gender = 'female' değeri atanır
+gender = 'male' değeri atanır
+Ekranı kaplayan büyük buton (CTA)
+Ekranı kaplayan büyük buton (CTA)
+Zustand store'a kaydedilir
+Zustand store'a kaydedilir
+Tüm alt sayfalar bu filtreyle çalışır
+Tüm alt sayfalar bu filtreyle çalışır
+⚙️  Teknik Not
+Global gender filtresi Zustand store içinde useOrderStore.gender olarak tutulur. Kullanıcı kategoriyi değiştirdiğinde mevcut sepet temizlenmez; yalnızca katalog görünümü güncellenir.
+1.1.3 Ürün Kataloğu
+Ürünler, seçilen cinsiyet filtresine göre 3'lü veya 4'lü grid yapısında listelenir. Her ürün kartında şu bilgiler yer alır:
+Ürün kodu (örn: AYK-2024-001)
+Ürün görseli (Firebase Storage'dan yüklenir)
+Başlangıç fiyatı (en küçük beden/renk kombinasyonunun fiyatı)
+Mevcut renk varyantlarını gösteren küçük renk noktaları (color swatches)
+Stok durumu rozeti: 'Mevcut', 'Az Kaldı (<10 çift)', 'Tükendi'
+1.1.4 Gelişmiş Sipariş Matrisi (KRİTİK ÖZELLİK)
+Ürün detay sayfasındaki sipariş matrisi, platformun en karmaşık ve en kritik bileşenidir. Aşağıdaki işlem adımlarını takip eder:
+Adım
+İşlem
+Açıklama
+1
+Renk Seçimi
+Kullanıcı ürünün mevcut renk varyantlarından birini seçer. Seçilen rengin görseli ana ekranda güncellenir.
+2
+Beden Tablosu
+Seçilen renge ait tüm bedenler (36–45 arası) ve her bedenin anlık stok miktarı tabloda görünür.
+3
+Adet Girişi
+Kullanıcı her beden için istediği adeti girer. Stoktan fazla adet girildiğinde alan otomatik olarak stoğu aşmaz.
+4
+Anlık Hesaplama
+Herhangi bir alan değiştiğinde, sayfanın alt kısmında 'Toplam Çift' ve 'Toplam Tutar' anlık güncellenir.
+5
+Sepete Ekleme
+Kullanıcı 'Sepete Ekle' butonuna bastığında seçili renk + beden + adet bilgisi Zustand sepetine eklenir.
+⚡  Performans Notu
+Sipariş matrisindeki her input değişikliği onDebounce(300ms) ile tetiklenerek gereksiz render döngüleri önlenir. Zustand selector pattern'ı kullanılarak yalnızca ilgili bileşenler yeniden render edilir.
+1.1.5 Anlık Sepet Hesaplama Paneli
+Sipariş matrisi ekranının alt kısmında sabit konumlanmış (sticky bottom bar) bir özet paneli bulunur. Bu panel:
+Tüm seçili bedenler için toplam çift adedini gösterir
+Anlık toplam tutarı (birim fiyat × adet) hesaplar ve gösterir
+Sayfa yenilenmeden, kullanıcının her adet değişikliğinde otomatik güncellenir
+Sepete geçişi sağlayan buton içerir
+1.2 Sipariş ve Stok Yönetimi
+1.2.1 Sepet Yönetimi
+Kullanıcı aynı oturum içinde birden fazla ürün modelini ve renk varyantını sepetine ekleyebilir. Sepet işlemleri aşağıdaki kurallara tabidir:
+Aynı ürün + aynı renk + aynı beden kombinasyonu tekrar eklendiğinde adet güncellenir (yeni kayıt oluşturulmaz)
+Farklı renk veya farklı beden için ayrı sepet kalemi (cart item) oluşturulur
+Sepet verisi localStorage'a persist edilir; sayfa yenilenmesinde sepet korunur
+Kullanıcı sepet sayfasından adet düzenleyebilir veya kalemi silebilir
+Sepet sayfasında tüm kalemlerin özeti, ara toplamlar ve genel toplam gösterilir
+1.2.2 Stok Senkronizasyonu (Gerçek Zamanlı)
+Stok yönetimi, sipariş sürecinin bütünlüğünü korumak için kritik öneme sahiptir. Aşağıdaki kurallar titizlikle uygulanmalıdır:
+Kural
+Davranış
+Anlık Stok Kontrolü
+Sipariş matrisi açıldığında Firebase'den anlık stok verisi çekilir.
+Stok Tükenme Gösterimi
+Stoğu tükenmiş bedenler matrise 'Pasif/Tükendi' etiketiyle işaretlenir; input alanı devre dışı bırakılır.
+Aşım Engeli
+Kullanıcı stoktan fazla adet giremez; max değer stok adediyle sınırlanır.
+Sipariş Sonrası Güncelleme
+Sipariş onaylandığında Django Firestore Transaction ile stok düşümü atomik olarak gerçekleştirilir.
+Race Condition Koruması
+Aynı anda birden fazla bayi aynı stoğu sipariş etmeye çalıştığında Transaction mekanizması çakışmayı önler.
+1.2.3 Sipariş Onay Süreci
+Sipariş tamamlanma akışı üç aşamadan oluşur:
+Sepet İnceleme: Kullanıcı sipariş vermeden önce tüm kalemlerini son kez gözden geçirir.
+Sipariş Özeti Modal'ı: 'Siparişi Onayla' butonuna basıldığında ürün listesi, toplam tutar ve tahmini kargo bilgilerini içeren bir modal/ekran gösterilir.
+Firebase'e İşlem: Onay verildiğinde Django API üzerinden Firestore'a sipariş kaydı yazılır, stok düşümü gerçekleştirilir ve kullanıcıya başarı bildirimi (toast/notification) gösterilir.
+📋  Sipariş Kaydı
+Her onaylanan sipariş; bayi kimliği, ürün/renk/beden/adet bilgileri, toplam tutar, tarih/saat damgası ve 'pending' başlangıç durumu ile Firestore'a yazılır.
+2. TEKNİK ŞARTNAME (TS)
+Bu bölüm, platformun teknik altyapısını, mimari kararlarını, veri şemasını, güvenlik politikalarını ve performans gereksinimlerini kapsamaktadır.
+2.1 Teknoloji Yığını (Tech Stack)
+Katman
+Teknoloji
+Neden Bu Seçim?
+Frontend
+React.js + Vite
+Hızlı HMR, modern build pipeline, geniş ekosistem. B2B SPA için ideal.
+State Yönetimi
+Zustand
+Redux'a kıyasla minimal boilerplate, selector desteğiyle optimize render. Sepet + kullanıcı durumu için.
+Stil
+Tailwind CSS
+Utility-first yaklaşım; hızlı prototipleme, responsive tasarım ve tutarlı UI sistemi.
+Backend
+Django Rest Framework
+Güçlü ORM, Firebase Admin SDK entegrasyonu, JWT doğrulama ve iş mantığı katmanı.
+Veritabanı
+Firebase Firestore
+NoSQL, gerçek zamanlı listener desteği, esnek şema. Stok matrisine uygun.
+Kimlik Doğrulama
+Firebase Auth
+Email/şifre ile bayi girişi; ID Token tabanlı API yetkilendirme.
+Dosya Depolama
+Firebase Storage
+Ürün görselleri için CDN destekli bulut depolama.
+Deploy (Frontend)
+Vercel
+Git push ile otomatik CI/CD, global edge network, ücretsiz SSL.
+Deploy (Backend)
+DigitalOcean / Railway
+Django için container tabanlı ölçeklenebilir hosting.
+2.2 Sistem Mimarisi ve Veri Akışı
+Platform, iki ana bilgi katmanı arasında köprü kuran bir mimari üzerine inşa edilmiştir:
+2.2.1 Frontend Durum Yönetimi (Zustand Stores)
+Store
+State Alanları
+Sorumluluk
+useOrderStore
+cartItems[], gender, totalPairs, totalAmount
+Sepet yönetimi, cinsiyet filtresi, anlık hesaplamalar. localStorage persist.
+useUserStore
+user, token, isAuthenticated
+Firebase oturum bilgisi, ID Token ve auth durumu yönetimi.
+2.2.2 API Katmanı (Django)
+React uygulaması, Firebase'e doğrudan bağlanmaz. Tüm veri işlemleri Django REST API üzerinden yürütülür:
+Endpoint
+Method
+Açıklama
+/api/products
+GET
+Tüm ürünleri döner. gender query param ile filtrelenir: ?gender=female
+/api/products/{id}/variants
+GET
+Belirli ürünün renk varyantlarını ve stok matrisini döner.
+/api/orders
+POST
+Sipariş oluşturur. Firebase Auth ID Token zorunludur. Stok düşümü Transaction ile yapılır.
+/api/orders/{id}
+GET
+Bayi'nin belirli bir siparişinin detayını döner.
+/api/orders/history
+GET
+Bayiye ait tüm sipariş geçmişini döner.
+🔐  Yetkilendirme Akışı
+1) Kullanıcı Firebase Auth ile giriş yapar. 2) Firebase ID Token alınır ve Zustand'a kaydedilir. 3) Her Django API isteğine Authorization: Bearer <token> header'ı eklenir. 4) Django, Firebase Admin SDK ile token'ı doğrular. 5) Token geçersizse 401 Unauthorized döner.
+2.3 Veritabanı Şeması (Firestore NoSQL)
+Firebase Firestore NoSQL yapısı, belge (document) ve koleksiyon (collection) modeline dayanır. Platform üç ana koleksiyon üzerine kurulur:
+Collection: products
+Alan
+Tip
+Açıklama
+id
+string (auto)
+Firestore tarafından otomatik oluşturulan benzersiz belge kimliği.
+code
+string
+Ürün kodu. Örn: 'AYK-2024-001'. İnsan okunabilir, benzersiz.
+name
+string
+Ürün adı. Örn: 'Hakiki Deri Klasik Babet'.
+gender
+string
+'male' veya 'female'. Kategori filtresi için kullanılır.
+base_price
+number
+Temel satış fiyatı (TL). En küçük beden için referans birim fiyat.
+image
+string (URL)
+Firebase Storage'daki ana görsel URL'si.
+created_at
+timestamp
+Ürünün sisteme eklenme tarihi.
+is_active
+boolean
+false ise ürün katalogda gösterilmez.
+Collection: variants
+Alan
+Tip
+Açıklama
+id
+string (auto)
+Benzersiz varyant kimliği.
+product_id
+string (ref)
+Bağlı olduğu ürünün products koleksiyonundaki ID'si.
+color
+string
+Renk adı. Örn: 'Siyah', 'Krem', 'Bordo'.
+color_hex
+string
+Renk kodu. Örn: '#1A1A1A'. UI'da renk noktası gösterimi için.
+images[]
+array<string>
+Bu renge ait görsellerin Firebase Storage URL listesi (min 1, max 5).
+stock_matrix
+map<string,int>
+Beden bazlı stok nesnesi. Örn: { '36': 10, '37': 5, '38': 0, '39': 8, '40': 12 }
+Collection: orders
+Alan
+Tip
+Açıklama
+id
+string (auto)
+Benzersiz sipariş kimliği.
+buyer_id
+string (ref)
+Firebase Auth UID. Siparişi veren bayinin kimliği.
+items[]
+array<object>
+Sipariş kalemleri. Her eleman: { product_id, color, sizes: { '36': 2, '37': 1 } }
+total_pairs
+number
+Siparişin toplam çift adedi.
+total_amount
+number
+Siparişin toplam tutarı (TL).
+status
+string
+'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
+created_at
+timestamp
+Sipariş oluşturulma zaman damgası.
+notes
+string (opt.)
+Bayinin opsiyonel sipariş notu.
+2.4 Güvenlik ve Performans
+2.4.1 Firebase Güvenlik Kuralları
+Firestore veritabanına doğrudan istemci erişimi kapatılacaktır. Tüm yazma işlemleri yalnızca Django Service Account üzerinden Firebase Admin SDK aracılığıyla gerçekleştirilir.
+Okuma (Read): Sadece kimliği doğrulanmış kullanıcılar okuyabilir (allow read: if request.auth != null)
+Yazma (Write): Hiçbir istemci doğrudan yazamaz; tüm yazma işlemleri Django backend üzerinden yapılır
+Stok Güncellemesi: Firebase Transaction kullanılarak race condition koruması sağlanır
+Service Account: Django'ya ait özel servis hesabı, ortam değişkenleri (env vars) ile güvenli şekilde yönetilir
+2.4.2 Performans Optimizasyonları
+Teknik
+Uygulama Detayı
+Zustand Selectors
+Bileşenler yalnızca ihtiyaç duydukları state dilimini abone olur: const cart = useStore(s => s.cart). Gereksiz re-render önlenir.
+Input Debounce
+Sipariş matrisindeki adet inputları 300ms debounce ile hesaplama tetikler. Sürekli hesaplama yükü önlenir.
+Lazy Loading
+Ürün görselleri Intersection Observer ile viewport'a girdiklerinde yüklenir (lazy load).
+Firebase Indexing
+product_id + color kombinasyonu için Firestore composite index oluşturulur.
+API Caching
+Ürün listesi verisi 5 dakika boyunca istemci tarafında cache'lenir; gereksiz API çağrısı azaltılır.
+3. GELİŞTİRME TAKVİMİ (10 Günlük Sprint)
+1.5 haftalık geliştirme süreci, birbirine bağımlı 5 ana fazdan oluşmaktadır. Her fazın çıktısı bir sonraki fazın başlangıç koşuludur.
+Gün
+Faz
+Hedef
+Aksiyon Adımları
+1–2
+Altyapı
+Temel Kurulum
+Firebase projesi oluşturma (Auth, Firestore, Storage). Django projesi init, requirements.txt. Zustand store iskelet yapısı. React Router + Protected Route kurulumu. Firebase Auth giriş ekranı.
+3–4
+Veri & Listeleme
+Ürün Kataloğu
+Test ürünlerinin Firebase'e girilmesi. Django /api/products endpoint'inin yazılması. React'te ürün grid bileşeninin geliştirilmesi. Kadın/Erkek filtresi (Zustand gender state). Renk swatch ve stok rozeti gösterimi.
+5–7
+Sipariş Matrisi
+Kritik Özellik
+Renk seçimine göre dinamik beden tablosu. Her beden için adet input alanı. Zustand ile anlık toplam hesaplama. Stok aşımı engeli ve 'Tükendi' pasif modu. Sticky bottom bar (Toplam Çift / Toplam Tutar).
+8–9
+Sepet & Checkout
+Sipariş Akışı
+Sepet sayfası bileşeni. Zustand persist (localStorage). Django /api/orders POST endpoint'i. Firestore Transaction ile atomik stok düşümü. Sipariş özeti modal ve başarı bildirimi.
+10
+Test & Yayın
+Canlıya Alma
+Mobil cihaz testleri (iPhone/Android). Edge case testleri (stok sıfır, eşzamanlı sipariş). Vercel'e frontend deploy. DigitalOcean/Railway'e Django deploy. Production Firebase rules aktifleştirme.
+3.1 Risk Analizi ve Azaltma Stratejileri
+Öncelik
+Risk
+Olasılık
+Azaltma Stratejisi
+🔴 Yüksek
+Eşzamanlı sipariş → stok negatife düşer
+Orta
+Firestore Transaction zorunlu kullanımı; backend doğrulama katmanı.
+🔴 Yüksek
+Sipariş matrisi (Gün 5-7) plandan geç kalır
+Orta
+Bu faza 1 ekstra gün buffer ekle; mockup verilerle başla.
+🟡 Orta
+Firebase Token süresi dolmuş API isteği
+Düşük
+Axios interceptor ile Token otomatik yenileme middleware'i.
+🟡 Orta
+Mobil layout bozukluğu
+Orta
+Gün 8'den itibaren her geliştirmede mobil preview kontrolü.
+🟢 Düşük
+Firebase Storage görsel yükleme gecikmesi
+Düşük
+Skeleton placeholder + lazy loading + görsel sıkıştırma.
+3.2 Teslim Kriterleri (Definition of Done)
+Her faz aşağıdaki kriterleri sağladığında tamamlanmış sayılır:
+Tüm fonksiyonlar tarayıcı konsolunda hata üretmeden çalışmaktadır
+Mobil (375px) ve masaüstü (1280px+) görünümlerde layout bütünlüğü korunmaktadır
+Firebase güvenlik kuralları production ortamında aktif durumdadır
+Sipariş akışı uçtan uca (bayi girişi → ürün seçimi → sepet → onay → Firestore kaydı) çalışmaktadır
+Zustand store'unda herhangi bir bellek sızıntısı bulunmamaktadır
+📌  Versiyon Geçmişi
+v1.0 – Mart 2026: İlk taslak dökümanı oluşturuldu. Tüm FRS ve TS bölümleri proje başlangıcı için hazırlandı.

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CURATED WAREHOUSE | Landing Page</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#454652",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e17c5a",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary-fixed": "#390c00",
+                        "tertiary-container": "#5c1800",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-container": "#526772",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#343d96",
+                        "outline-variant": "#c6c5d4",
+                        "secondary": "#4c616c",
+                        "on-primary-fixed": "#000767",
+                        "tertiary-fixed": "#ffdbd0",
+                        "secondary-fixed": "#cfe6f2",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary": "#380b00",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-background": "#191c1d",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7b2e12",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-primary-container": "#8690ee",
+                        "primary": "#000666",
+                        "surface-tint": "#4c56af",
+                        "background": "#f8f9fa",
+                        "outline": "#767683",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bdc2ff",
+                        "primary-container": "#1a237e"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+
+    <!-- TopNavBar -->
+    <header class="bg-white/80 backdrop-blur-xl border-b border-slate-200/40 sticky top-0 z-50">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+            <div class="flex items-center gap-8 md:gap-12">
+                <span class="text-xl font-extrabold tracking-tighter text-primary uppercase">CURATED WAREHOUSE</span>
+                <nav class="hidden md:flex gap-8 items-center">
+                    <a class="text-slate-500 hover:text-primary transition-colors font-['Inter'] text-sm font-medium tracking-wide" href="#">Catalog</a>
+                    <a class="text-primary font-semibold border-b-2 border-primary pb-1 font-['Inter'] text-sm tracking-wide" href="#">My Orders</a>
+                    <a class="text-slate-500 hover:text-primary transition-colors font-['Inter'] text-sm font-medium tracking-wide" href="#">My Account</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="bg-surface-container-low text-primary hover:bg-surface-container transition-all duration-200 px-5 py-2.5 rounded flex items-center gap-2 font-semibold text-sm">
+                    <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                    Cart (12 items / 4,850 TL)
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-[1440px] mx-auto px-6 py-12 space-y-20">
+        
+        <!-- Hero Categories Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 h-auto md:h-[420px]">
+            <!-- Women's Category -->
+            <div class="bg-[#f6f4f2] flex flex-col items-center justify-center p-12 text-center group cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                <span class="material-symbols-outlined text-5xl text-[#3b2d26] mb-8 group-hover:scale-110 transition-transform">kitchen</span>
+                <h2 class="text-3xl font-extrabold text-[#1a1614] mb-3 tracking-tight">WOMEN'S SLIPPERS</h2>
+                <p class="text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase mb-10">Premium B2B Collection</p>
+                <button class="border border-slate-300 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:bg-white transition-colors bg-white/40">
+                    Explore Category
+                </button>
+            </div>
+            
+            <!-- Men's Category -->
+            <div class="bg-[#f2f4f7] flex flex-col items-center justify-center p-12 text-center group cursor-pointer transition-all hover:shadow-xl hover:-translate-y-1">
+                <div class="flex items-center gap-2 mb-8 text-primary group-hover:translate-x-2 transition-transform">
+                    <span class="material-symbols-outlined text-5xl">east</span>
+                    <div class="w-3.5 h-3.5 bg-primary rounded-full"></div>
+                </div>
+                <h2 class="text-3xl font-extrabold text-[#0f172a] mb-3 tracking-tight">MEN'S SLIPPERS</h2>
+                <p class="text-[11px] font-bold tracking-[0.25em] text-slate-500 uppercase mb-10">Luxury Wholesale Range</p>
+                <button class="border border-slate-300 px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:bg-white transition-colors bg-white/40">
+                    Explore Category
+                </button>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section>
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <span class="font-['Inter'] text-xs font-extrabold uppercase tracking-[0.2em] text-primary mb-3 block">Curated Selection</span>
+                    <h2 class="text-4xl font-extrabold text-on-surface">New Arrivals</h2>
+                </div>
+                <a href="#" class="text-primary font-bold text-sm flex items-center gap-1 hover:underline pb-1">
+                    View Full Catalog <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-6">
+                <!-- Product 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#223d30] mb-5 relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=400&h=500" class="w-full h-full object-cover mix-blend-screen group-hover:scale-105 transition-transform duration-500 saturate-0" alt="Slipper">
+                    </div>
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">In Stock: 450 Units</p>
+                        <h3 class="text-[15px] font-semibold text-on-surface">Heritage Wool Loafer</h3>
+                        <p class="text-primary font-bold text-[15px] pt-1">24.50 TL <span class="text-[11px] font-medium text-slate-500">/ Wholesale Unit</span></p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#f4ebd9] mb-5 relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1603487742131-4160ec999306?auto=format&fit=crop&q=80&w=400&h=500" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500 saturate-50 contrast-125" alt="Slipper">
+                    </div>
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] font-bold text-tertiary-container uppercase tracking-widest">Best Seller</p>
+                        <h3 class="text-[15px] font-semibold text-on-surface">Suede Comfort Slide</h3>
+                        <p class="text-primary font-bold text-[15px] pt-1">18.90 TL <span class="text-[11px] font-medium text-slate-500">/ Wholesale Unit</span></p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#e4e4e3] mb-5 relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1449505278894-297fdb3edbc1?auto=format&fit=crop&q=80&w=400&h=500" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500 saturate-0" alt="Slipper">
+                    </div>
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">In Stock: 120 Units</p>
+                        <h3 class="text-[15px] font-semibold text-on-surface">Nordic Felt Mule</h3>
+                        <p class="text-primary font-bold text-[15px] pt-1">32.00 TL <span class="text-[11px] font-medium text-slate-500">/ Wholesale Unit</span></p>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#fafafa] mb-5 relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1582046162294-81dcf300407a?auto=format&fit=crop&q=80&w=400&h=500" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500 opacity-90" alt="Slipper">
+                    </div>
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Volume Pricing</p>
+                        <h3 class="text-[15px] font-semibold text-on-surface">Cloud Cotton Terry</h3>
+                        <p class="text-primary font-bold text-[15px] pt-1">12.50 TL <span class="text-[11px] font-medium text-slate-500">/ Wholesale Unit</span></p>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[4/5] bg-[#ececec] mb-5 relative overflow-hidden flex items-center justify-center p-4">
+                        <img src="https://images.unsplash.com/photo-1614252339460-e1b180dcc114?auto=format&fit=crop&q=80&w=400&h=500" class="w-full h-full object-cover mix-blend-multiply group-hover:scale-105 transition-transform duration-500" alt="Slipper">
+                    </div>
+                    <div class="space-y-1.5">
+                        <p class="text-[10px] font-bold text-primary uppercase tracking-widest">Premium Range</p>
+                        <h3 class="text-[15px] font-semibold text-on-surface">Artisan Leather Slipper</h3>
+                        <p class="text-primary font-bold text-[15px] pt-1">58.00 TL <span class="text-[11px] font-medium text-slate-500">/ Wholesale Unit</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features / Trust Section -->
+        <section class="bg-surface-container-low p-8 md:p-12 border-y border-slate-200/50">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-300/50">
+                <!-- Feature 1 -->
+                <div class="flex items-start gap-4 md:px-6 pt-6 md:pt-0 first:pt-0 first:px-0">
+                    <span class="material-symbols-outlined text-primary text-[32px] mt-1">local_shipping</span>
+                    <div>
+                        <h4 class="font-bold text-on-surface mb-1.5 text-[15px]">Next-Day Dispatch</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-medium">On all wholesale orders over 5,000 TL</p>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="flex items-start gap-4 md:px-6 pt-6 md:pt-0">
+                    <span class="material-symbols-outlined text-primary text-[32px] mt-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    <div>
+                        <h4 class="font-bold text-on-surface mb-1.5 text-[15px]">Quality Guaranteed</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-medium">Strict QC for bulk batch processing</p>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="flex items-start gap-4 md:px-6 pt-6 md:pt-0">
+                    <span class="material-symbols-outlined text-primary text-[32px] mt-1" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+                    <div>
+                        <h4 class="font-bold text-on-surface mb-1.5 text-[15px]">B2B Account Manager</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed font-medium">24/7 dedicated support for retailers</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

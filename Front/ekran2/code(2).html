@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#454652",
+              "surface-dim": "#d9dadb",
+              "on-surface": "#191c1d",
+              "on-secondary-fixed": "#071e27",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#e17c5a",
+              "primary-fixed-dim": "#bdc2ff",
+              "surface": "#f8f9fa",
+              "tertiary-fixed-dim": "#ffb59d",
+              "inverse-surface": "#2e3132",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "surface-container-low": "#f3f4f5",
+              "surface-container": "#edeeef",
+              "secondary-container": "#cfe6f2",
+              "on-tertiary-fixed": "#390c00",
+              "tertiary-container": "#5c1800",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-container": "#526772",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#343d96",
+              "outline-variant": "#c6c5d4",
+              "secondary": "#4c616c",
+              "on-primary-fixed": "#000767",
+              "tertiary-fixed": "#ffdbd0",
+              "secondary-fixed": "#cfe6f2",
+              "surface-bright": "#f8f9fa",
+              "primary-fixed": "#e0e0ff",
+              "surface-variant": "#e1e3e4",
+              "surface-container-highest": "#e1e3e4",
+              "inverse-on-surface": "#f0f1f2",
+              "tertiary": "#380b00",
+              "on-secondary-fixed-variant": "#354a53",
+              "on-background": "#191c1d",
+              "on-error": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#7b2e12",
+              "secondary-fixed-dim": "#b4cad6",
+              "on-primary-container": "#8690ee",
+              "primary": "#000666",
+              "surface-tint": "#4c56af",
+              "background": "#f8f9fa",
+              "outline": "#767683",
+              "error": "#ba1a1a",
+              "inverse-primary": "#bdc2ff",
+              "primary-container": "#1a237e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.bg-women-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuAm6rY9tH-oQmf1UTq6mpxXUx64T7XRWoolpf4lK4PzYvOKPTljYR3TtKBkTdOeJmQvCYxKcWtywJIZCbixD0_Gwny59aSI_UThi4WYKTerfGq1UhpbXBbg9aeLHyELWvitfI5PXXASgaHFiDn_-AHzc-DIJGWj62QgBDUW4egtdyNk5P1GfwAPwU1k63ActDrXE6rjRxX4jD4yhnuG0u0UXvTMC7W-XibPIlFPDfTrj9TPori-vdRZH_8FFUbjqnyeU-xLs8VgIsMO);
+    background-size: cover;
+    background-position: center
+    }
+.bg-men-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCAlINoVSZYrGBElL89V9eLibQ4sIWiVzvMNU9ViQMgKJa5wPrpWftN71yHuZOTzVPciniek1SIBtc4d2rZsHhug4aE0gIodykLwgHcpiqSGHOsXh8lRF-az-XkhSiDjRDguya2f63292dm8GozdOuVaK_91zR2CNWmG9XRqGVnLUFUnXMZAFojZEAL2Hmw1j58QtZnUWDQV-v96vfzJ_cPzmWjTcv7gDf62BbLLqOqoyBEEofHYmr5RTMWT5keWY7tWF4t-4V8_2D6);
+    background-size: cover;
+    background-position: center
+    }
+.safe-pb {
+    padding-bottom: env(safe-area-inset-bottom)
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased select-none">
+<!-- Top Navigation Bar -->
+<nav class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<h1 class="text-xl font-bold tracking-tighter text-[#000666] dark:text-white font-headline">
+                CURATED WAREHOUSE
+            </h1>
+<div class="flex items-center gap-4">
+<button class="text-slate-500 dark:text-slate-400 p-2 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 rounded-full scale-98 active:opacity-80 transition-transform">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content: Vertical Split Journey -->
+<main class="flex flex-col h-[calc(100vh-128px)] w-full overflow-hidden">
+<!-- Women Section -->
+<a class="relative flex-1 group overflow-hidden focus:outline-none" href="#">
+<div class="absolute inset-0 bg-women-hero transition-transform duration-700 group-active:scale-105 filter blur-[1px]" data-alt="High quality feminine luxury slippers on soft rug"></div>
+<div class="absolute inset-0 bg-tertiary/10 mix-blend-multiply"></div>
+<div class="relative h-full w-full flex flex-col items-start justify-center px-10">
+<span class="font-headline text-5xl font-extrabold text-white tracking-tighter mb-2">WOMEN</span>
+<div class="flex items-center gap-2 text-white/90 font-label tracking-widest text-xs uppercase">
+<span>Explore Collection</span>
+<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</div>
+</div>
+<!-- Accent detail -->
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary"></div>
+</a>
+<!-- Men Section -->
+<a class="relative flex-1 group overflow-hidden focus:outline-none" href="#">
+<div class="absolute inset-0 bg-men-hero transition-transform duration-700 group-active:scale-105 filter blur-[1px]" data-alt="Premium masculine leather slippers on hardwood floor"></div>
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="relative h-full w-full flex flex-col items-end justify-center px-10">
+<span class="font-headline text-5xl font-extrabold text-white tracking-tighter mb-2 text-right">MEN</span>
+<div class="flex items-center gap-2 text-white/90 font-label tracking-widest text-xs uppercase">
+<span>Explore Collection</span>
+<span class="material-symbols-outlined text-sm">arrow_forward_ios</span>
+</div>
+</div>
+<!-- Accent detail -->
+<div class="absolute bottom-0 right-0 w-1 h-full bg-primary"></div>
+</a>
+</main>
+<!-- Quick Stats Bar (B2B Context) -->
+<div class="bg-surface-container-low px-6 py-3 flex justify-between items-center text-[10px] uppercase tracking-widest font-semibold text-slate-500">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            Live Inventory: 4,208 Units
+        </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">local_shipping</span>
+            Next Ship: Today
+        </div>
+</div>
+<!-- Spacer for Navigation -->
+<div class="h-16"></div>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-white dark:bg-slate-950 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-200/30 z-50">
+<!-- Home Tab (Active) -->
+<a class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-400 font-bold tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-0.5">Home</span>
+</a>
+<!-- Catalog Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent active:bg-slate-50 dark:active:bg-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-0.5">Catalog</span>
+</a>
+<!-- Orders Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent active:bg-slate-50 dark:active:bg-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-0.5">Orders</span>
+</a>
+<!-- Account Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent active:bg-slate-50 dark:active:bg-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] font-medium mt-0.5">Account</span>
+</a>
+<!-- Cart Tab -->
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent active:bg-slate-50 dark:active:bg-slate-900 transition-colors" href="#">
+<div class="relative">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-tertiary text-white text-[8px] w-3.5 h-3.5 flex items-center justify-center rounded-full">3</span>
+</div>
+<span class="font-['Inter'] text-[10px] font-medium mt-0.5">Cart</span>
+</a>
+</nav>
+</body></html>

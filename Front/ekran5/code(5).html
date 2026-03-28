@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CURATED WAREHOUSE | B2B Product Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface-variant": "#454652",
+                        "surface-dim": "#d9dadb",
+                        "on-surface": "#191c1d",
+                        "on-secondary-fixed": "#071e27",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#e17c5a",
+                        "primary-fixed-dim": "#bdc2ff",
+                        "surface": "#f8f9fa",
+                        "tertiary-fixed-dim": "#ffb59d",
+                        "inverse-surface": "#2e3132",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "surface-container-low": "#f3f4f5",
+                        "surface-container": "#edeeef",
+                        "secondary-container": "#cfe6f2",
+                        "on-tertiary-fixed": "#390c00",
+                        "tertiary-container": "#5c1800",
+                        "surface-container-high": "#e7e8e9",
+                        "on-secondary-container": "#526772",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#343d96",
+                        "outline-variant": "#c6c5d4",
+                        "secondary": "#4c616c",
+                        "on-primary-fixed": "#000767",
+                        "tertiary-fixed": "#ffdbd0",
+                        "secondary-fixed": "#cfe6f2",
+                        "surface-bright": "#f8f9fa",
+                        "primary-fixed": "#e0e0ff",
+                        "surface-variant": "#e1e3e4",
+                        "surface-container-highest": "#e1e3e4",
+                        "inverse-on-surface": "#f0f1f2",
+                        "tertiary": "#380b00",
+                        "on-secondary-fixed-variant": "#354a53",
+                        "on-background": "#191c1d",
+                        "on-error": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7b2e12",
+                        "secondary-fixed-dim": "#b4cad6",
+                        "on-primary-container": "#8690ee",
+                        "primary": "#000666",
+                        "surface-tint": "#4c56af",
+                        "background": "#f8f9fa",
+                        "outline": "#767683",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bdc2ff",
+                        "primary-container": "#1a237e"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar Implementation -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/20 dark:border-slate-800/20 shadow-sm dark:shadow-none docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#000666] dark:text-white uppercase">CURATED WAREHOUSE</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#000666] transition-colors font-['Manrope'] text-sm tracking-wide" href="#">My Orders</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#000666] transition-colors font-['Manrope'] text-sm tracking-wide" href="#">My Account</a>
+<a class="text-[#000666] dark:text-blue-400 font-semibold border-b-2 border-[#000666] pb-1 font-['Manrope'] text-sm tracking-wide" href="#">Cart</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border-none rounded-lg px-4 py-2 text-sm focus:ring-1 focus:ring-primary w-64" placeholder="Search SKU..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-slate-400 text-lg">search</span>
+</div>
+<button class="material-symbols-outlined text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all duration-200 p-2 rounded-full">shopping_cart</button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-6 py-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left: Gallery Section -->
+<div class="lg:col-span-7 space-y-6">
+<div class="aspect-[4/5] bg-surface-container-low overflow-hidden rounded-xl relative group cursor-zoom-in">
+<img alt="Product Hero" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Luxury athletic sneaker detail shot on grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz-vmbnxgo0AwHVQYfOLcnMHyj9WTXAgPB4sc6sF4fK2hntuRy21FeNEA_WsnTV4ysO6f0WoqLlWiD1ZywEBqpzL4jFTtpAtSD5oUvwL1B9VN0bfUlCQMIWznfuthAQcM4bABkAw4XH8dcTvfAxnIj6QoUkAOA6GjC9tVJY7kYDY66SOdUp8wApZQ6JCvBp1iHCJmEjVrh5yc3atGmK1gZXHmDRpymNXxAi8izSl_5FumUu2BqX8qu53gAo5KXdTM6vELhozQinAwp"/>
+<div class="absolute bottom-6 right-6 bg-white/90 backdrop-blur-md p-3 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-primary">zoom_in</span>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden border-2 border-primary">
+<img alt="Thumb 1" class="w-full h-full object-cover" data-alt="Close up view of sneaker sole" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAdInKOhqLq7oQi_U0EFCML_HPcGgeXMtYYRq5hvXwEhSnlf1HO9W9zvPUcAWWxOkKj5MwAHNoWp6dcYIpVWq7A9rDgmP8hUwnZtrfUHBLPLGgFHl9-HM1WtGT7-z-sWUpYRRSOf0r4nEHf-yjmUWkTTPCcQjszv23MxHIPYIsZmdyPbsoUkYhKsrooOcnQNKafjLqooSKDgWBnJStJF66n7UYI5el9USQQtGG0eLOoNQTACIdcxt3NmuE8fbw2jAl_HsnYcGNmKwc"/>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden opacity-60 hover:opacity-100 cursor-pointer transition-opacity">
+<img alt="Thumb 2" class="w-full h-full object-cover" data-alt="Side profile of technical lifestyle shoe" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrf2F_P45ZU5Kgtqsi7y2rsHlUEfJdbKNW24uaVT84AnMTym_6DG_acjyua1pL2yPkYzFQvIblSS55DCTiPxYytZmufLzqs7vKEMCCPjVKltkta95VSg2wtEEM7d4BRSiiQduOkHYM1LEJkEP1SURTsBibuc1-SCoRqFQFU7-MzAza9ny4SqAG6rSOk73OYl6QLZdpyAu7cr6UypzqLEUmWVsHG3DJJCqMjIvQciYWHOGGCol6P0YoYgVFUdeF4xm7X8jjLBhgLPj_"/>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden opacity-60 hover:opacity-100 cursor-pointer transition-opacity">
+<img alt="Thumb 3" class="w-full h-full object-cover" data-alt="High angle shot of footwear pair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8vK41BwDqRFaF9QFnpyVfRRnqc2Wx2kAsiNNhKSRbhFwESlCTGsJOEECG_sYIzLEUgaEKpCr0YBUG_hY7DMVL9E5GOuyHYfvQQGqV2fnYA_4JHNYt464vXjwmHbbiSsBJUPM1eR6JrbGrm8uTeaIzG4wa8b9OA34dlI6WjuJL0mtSPUYDCzH6xkpVkDbl8SJ-gaaT_7N0oCXmly6JU2ynBiw6AEh1DFYexHDdrxPNSuukyJbnH2-obPuap9AYmStlW8BN6xXe2VS4"/>
+</div>
+<div class="aspect-square bg-surface-container-low rounded-lg overflow-hidden opacity-60 hover:opacity-100 cursor-pointer transition-opacity">
+<img alt="Thumb 4" class="w-full h-full object-cover" data-alt="Detail shot of material texture and stitching" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbOm6KX-WXJr2MUK5YAGx_ICnKPU1vDy47UvsUhOveHjPxUBPXoXqE54NV18iJ0LTCLJLSZjwA4lZ-tmZzhbMIaW-Flbd7ftPCmdWMT436Z70qVOdB96uAbvDHSt8WqDyyzvwb99GMcHXvNVSqmV6m3Wj_x4n0bQMelcCAqsbO3xCcxHsOAOKid0SX6s0pHYPtIvxGJVuZiMmCeJpm1FoSW8w9WHIOlRBxpfT3hNzsH1q-674J1RLu8uL1XfFtzF6k4W7sjAWDetPP"/>
+</div>
+</div>
+</div>
+<!-- Right: Product Info & Matrix Section -->
+<div class="lg:col-span-5 space-y-10">
+<section>
+<div class="mb-4">
+<span class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-secondary">MEN / CORE COLLECTION</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold text-primary mb-2 tracking-tight">Vanguard Elite Runner</h1>
+<div class="flex items-center gap-4 text-sm font-medium text-slate-500 mb-8">
+<span>SKU: CW-992-B</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-tertiary">Wholesale MSRP: $84.00</span>
+</div>
+<div class="grid grid-cols-2 gap-y-6 py-8 border-y border-slate-200/40">
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Material</p>
+<p class="text-sm font-semibold text-on-surface">Primeknit Mesh &amp; Suede</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Sole Type</p>
+<p class="text-sm font-semibold text-on-surface">Vibram® Arctic Grip</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Origin</p>
+<p class="text-sm font-semibold text-on-surface">Porto, Portugal</p>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Certification</p>
+<p class="text-sm font-semibold text-on-surface">ISO 14001 Compliant</p>
+</div>
+</div>
+</section>
+<!-- Order Matrix -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-primary">Inventory Matrix</h3>
+<div class="flex gap-2">
+<span class="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase"><span class="w-2 h-2 rounded-full bg-primary-container"></span> In Stock</span>
+<span class="flex items-center gap-1 text-[10px] font-bold text-slate-400 uppercase"><span class="w-2 h-2 rounded-full bg-error"></span> Sold Out</span>
+</div>
+</div>
+<div class="overflow-hidden rounded-xl border border-outline-variant/20 bg-surface-container-lowest">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-4 py-3 text-[10px] font-bold text-secondary uppercase tracking-widest">Size (EU)</th>
+<th class="px-4 py-3 text-[10px] font-bold text-secondary uppercase tracking-widest">Status</th>
+<th class="px-4 py-3 text-[10px] font-bold text-secondary uppercase tracking-widest text-right">Qty</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100">
+<tr>
+<td class="px-4 py-4 font-semibold text-sm">36</td>
+<td class="px-4 py-4 text-xs font-medium text-on-secondary-container">50+ available</td>
+<td class="px-4 py-4 text-right">
+<input class="w-20 bg-surface-container rounded border-none text-right font-medium text-sm focus:ring-1 focus:ring-primary" min="0" type="number" value="0"/>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-semibold text-sm text-slate-400">37</td>
+<td class="px-4 py-4 text-xs font-medium text-error">Out of Stock</td>
+<td class="px-4 py-4 text-right">
+<input class="w-20 bg-slate-100/50 rounded border-none text-right font-medium text-sm cursor-not-allowed opacity-50" disabled="" placeholder="-" type="number"/>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-semibold text-sm">38</td>
+<td class="px-4 py-4 text-xs font-medium text-on-secondary-container">30 units</td>
+<td class="px-4 py-4 text-right">
+<input class="w-20 bg-surface-container rounded border-none text-right font-medium text-sm focus:ring-1 focus:ring-primary" min="0" type="number" value="0"/>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-semibold text-sm">39</td>
+<td class="px-4 py-4 text-xs font-medium text-on-secondary-container">100+ available</td>
+<td class="px-4 py-4 text-right">
+<input class="w-20 bg-surface-container rounded border-none text-right font-medium text-sm focus:ring-1 focus:ring-primary" min="0" type="number" value="0"/>
+</td>
+</tr>
+<tr>
+<td class="px-4 py-4 font-semibold text-sm">40</td>
+<td class="px-4 py-4 text-xs font-medium text-on-secondary-container">42 units</td>
+<td class="px-4 py-4 text-right">
+<input class="w-20 bg-surface-container rounded border-none text-right font-medium text-sm focus:ring-1 focus:ring-primary" min="0" type="number" value="0"/>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Assorted Box Section -->
+<section class="p-6 bg-surface-container-low rounded-xl border-l-4 border-primary/40">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="text-sm font-bold text-primary">Assorted Box Selection</h3>
+<p class="text-xs text-slate-500">Optimized retail distribution packs</p>
+</div>
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+</div>
+<div class="grid grid-cols-1 gap-3">
+<label class="flex items-center justify-between p-3 bg-white rounded-lg border border-outline-variant/10 cursor-pointer hover:border-primary transition-all group">
+<div class="flex items-center gap-3">
+<input class="text-primary focus:ring-primary" name="box" type="radio"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Pack A: Standard Distribution</p>
+<p class="text-[10px] text-slate-400 uppercase">3x36, 4x37, 3x38 (10 units)</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary group-hover:translate-x-1 transition-transform">$840.00</span>
+</label>
+<label class="flex items-center justify-between p-3 bg-white rounded-lg border border-outline-variant/10 cursor-pointer hover:border-primary transition-all group">
+<div class="flex items-center gap-3">
+<input class="text-primary focus:ring-primary" name="box" type="radio"/>
+<div>
+<p class="text-xs font-bold text-on-surface">Pack B: Large Size Bias</p>
+<p class="text-[10px] text-slate-400 uppercase">2x38, 5x39, 3x40 (10 units)</p>
+</div>
+</div>
+<span class="text-xs font-bold text-primary group-hover:translate-x-1 transition-transform">$840.00</span>
+</label>
+</div>
+</section>
+<!-- Main CTA -->
+<div class="pt-6">
+<button class="w-full bg-primary hover:bg-primary-container text-white py-5 rounded-lg font-bold text-sm tracking-widest uppercase transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/10">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+                        Add Order to Cart
+                    </button>
+<p class="text-center text-[10px] text-slate-400 mt-4 uppercase tracking-tighter">Current Lead Time: 4-6 Business Days</p>
+</div>
+</div>
+</div>
+<!-- Related Technical Specs (Editorial Layout) -->
+<section class="mt-24 pt-24 border-t border-slate-200/40">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<span class="text-4xl font-extrabold text-surface-container-highest">01.</span>
+<h4 class="text-lg font-bold text-primary">Upper Architecture</h4>
+<p class="text-sm text-secondary leading-relaxed">Engineered mesh paired with sustainable Italian suede overlays provides maximum durability and breathability for long-duration wear.</p>
+</div>
+<div class="space-y-4">
+<span class="text-4xl font-extrabold text-surface-container-highest">02.</span>
+<h4 class="text-lg font-bold text-primary">Traction System</h4>
+<p class="text-sm text-secondary leading-relaxed">Our proprietary multi-directional lug pattern ensures stability on both industrial surfaces and street terrain.</p>
+</div>
+<div class="space-y-4">
+<span class="text-4xl font-extrabold text-surface-container-highest">03.</span>
+<h4 class="text-lg font-bold text-primary">B2B Compliance</h4>
+<p class="text-sm text-secondary leading-relaxed">Full traceability documentation provided with each order. Retail-ready packaging with UPC barcodes pre-labeled.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar Implementation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-white dark:bg-slate-950 pb-safe shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">home</span>
+<span>Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">grid_view</span>
+<span>Catalog</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">receipt_long</span>
+<span>Orders</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-400 font-bold font-['Inter'] text-[10px]">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Cart</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 font-['Inter'] text-[10px] font-medium">
+<span class="material-symbols-outlined">person</span>
+<span>Account</span>
+</div>
+</nav>
+</body></html>

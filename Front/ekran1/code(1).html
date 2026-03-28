@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-surface-variant": "#454652",
+            "surface-dim": "#d9dadb",
+            "on-surface": "#191c1d",
+            "on-secondary-fixed": "#071e27",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#e17c5a",
+            "primary-fixed-dim": "#bdc2ff",
+            "surface": "#f8f9fa",
+            "tertiary-fixed-dim": "#ffb59d",
+            "inverse-surface": "#2e3132",
+            "on-secondary": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f3f4f5",
+            "surface-container": "#edeeef",
+            "secondary-container": "#cfe6f2",
+            "on-tertiary-fixed": "#390c00",
+            "tertiary-container": "#5c1800",
+            "surface-container-high": "#e7e8e9",
+            "on-secondary-container": "#526772",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#343d96",
+            "outline-variant": "#c6c5d4",
+            "secondary": "#4c616c",
+            "on-primary-fixed": "#000767",
+            "tertiary-fixed": "#ffdbd0",
+            "secondary-fixed": "#cfe6f2",
+            "surface-bright": "#f8f9fa",
+            "primary-fixed": "#e0e0ff",
+            "surface-variant": "#e1e3e4",
+            "surface-container-highest": "#e1e3e4",
+            "inverse-on-surface": "#f0f1f2",
+            "tertiary": "#380b00",
+            "on-secondary-fixed-variant": "#354a53",
+            "on-background": "#191c1d",
+            "on-error": "#ffffff",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed-variant": "#7b2e12",
+            "secondary-fixed-dim": "#b4cad6",
+            "on-primary-container": "#8690ee",
+            "primary": "#000666",
+            "surface-tint": "#4c56af",
+            "background": "#f8f9fa",
+            "outline": "#767683",
+            "error": "#ba1a1a",
+            "inverse-primary": "#bdc2ff",
+            "primary-container": "#1a237e"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- Top Navigation Shell -->
+<header class="bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-slate-200/20 shadow-sm">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-[#000666] dark:text-white font-headline">
+        CURATED WAREHOUSE
+      </div>
+<nav class="hidden md:flex items-center gap-8 font-['Manrope'] text-sm tracking-wide">
+<a class="text-slate-500 hover:text-[#000666] transition-colors" href="#">My Orders</a>
+<a class="text-slate-500 hover:text-[#000666] transition-colors" href="#">My Account</a>
+<a class="text-[#000666] font-semibold border-b-2 border-[#000666] pb-1" href="#">Cart</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-50 rounded-full transition-all duration-200 active:opacity-80">
+<span class="material-symbols-outlined text-[#000666]">shopping_cart</span>
+</button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto flex min-h-screen">
+<!-- Sidebar Filters -->
+<aside class="hidden lg:flex flex-col gap-4 p-6 bg-slate-50 dark:bg-slate-900 h-full w-64 border-r border-slate-200/20 tonal-layering-surface-container-low">
+<div class="mb-6">
+<h2 class="text-lg font-bold text-[#000666] font-headline">FILTERS</h2>
+<p class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-slate-500 mt-1">Refine Collection</p>
+</div>
+<div class="space-y-8">
+<!-- Filter Group: Material -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-[#000666]">texture</span>
+<h3 class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#000666]">Material</h3>
+</div>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 rounded-full bg-[#000666] text-white text-[10px] font-bold">Leather</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] hover:translate-x-1 transition-transform">Suede</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container-highest text-on-surface-variant text-[10px] hover:translate-x-1 transition-transform">Textile</button>
+</div>
+</section>
+<!-- Filter Group: Style -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-[#000666]">style</span>
+<h3 class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#000666]">Style</h3>
+</div>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 group cursor-pointer">
+<input checked="" class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-xs text-on-surface-variant group-hover:translate-x-1 transition-transform">Home</span>
+</label>
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-xs text-on-surface-variant group-hover:translate-x-1 transition-transform">Beach</span>
+</label>
+<label class="flex items-center gap-2 group cursor-pointer">
+<input class="rounded border-outline-variant text-primary focus:ring-primary-container" type="checkbox"/>
+<span class="text-xs text-on-surface-variant group-hover:translate-x-1 transition-transform">Daily</span>
+</label>
+</div>
+</section>
+<!-- Filter Group: Size Range -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-[#000666]">straighten</span>
+<h3 class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#000666]">Size Range</h3>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="aspect-square border border-outline-variant/20 flex items-center justify-center text-[10px] font-bold hover:bg-surface-container-high transition-colors">36</button>
+<button class="aspect-square border border-outline-variant/20 flex items-center justify-center text-[10px] font-bold hover:bg-surface-container-high transition-colors">37</button>
+<button class="aspect-square border border-outline-variant/20 flex items-center justify-center text-[10px] font-bold hover:bg-surface-container-high transition-colors">38</button>
+<button class="aspect-square border border-outline-variant/20 flex items-center justify-center text-[10px] font-bold hover:bg-surface-container-high transition-colors">39</button>
+<button class="aspect-square border border-outline-variant/20 flex items-center justify-center text-[10px] font-bold hover:bg-surface-container-high transition-colors">40</button>
+</div>
+</section>
+<!-- Filter Group: Price Range -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-sm text-[#000666]">payments</span>
+<h3 class="font-['Inter'] text-xs font-semibold uppercase tracking-widest text-[#000666]">Price Range</h3>
+</div>
+<input class="w-full accent-[#000666]" max="1000" min="0" type="range"/>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-slate-500">
+<span>$0</span>
+<span>$1000+</span>
+</div>
+</section>
+</div>
+</aside>
+<!-- Main Content -->
+<section class="flex-1 p-8 lg:p-12 bg-white">
+<header class="mb-12">
+<h1 class="font-headline text-4xl lg:text-5xl font-extrabold text-[#000666] tracking-tight mb-2">Women's Slipper Collection</h1>
+<p class="text-secondary font-body max-w-2xl">Premium wholesale selection curated for high-end boutiques. Explore our seasonal range of luxury indoor and outdoor slippers crafted with exceptional materials.</p>
+</header>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-8 gap-y-16">
+<!-- Product Card 1 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of luxury suede women slippers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdrTT2noLaGqVw1hSo-J9TAuvAWRCPGQ4u9EF6vzbHNYrrwX7Du7UMvSN0a-CScPbyufI_buve4_Ls_-wmUTuJ0zOmSISVnhLjUREgULf6VtTXbzy51e6jWW5a2Nx9IQeHKoHWWOLJCgJnGOlSSYo56WAymRKth0mZcs5jDxIv_pB45wWHC0VJREDRiLIT9hrU0uUH1ntX5MwskWCwTGn-RkyeC0cOR4tm0DQD0lOAFihOMjjr0N4NL5GPDGUEkeJ9bFY79Zds9K71"/>
+<div class="absolute top-4 left-4">
+<span class="bg-[#380b00] text-white text-[10px] px-3 py-1 font-bold tracking-widest uppercase">Best Seller</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Velvet Lounge Mule</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-001</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$12.50</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$150.00</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Elegant leather slippers for indoor use" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuSdz8UYlJ7meRN-MKrm7qDUfe81Gt1gXbnzyOr-Br-XVd_osjJgD9nA9fdDqN012epxZgJtvGeQ2B9DSEW_P5Wh9KmQjbRDpd2r1pEJOS7ZDSlKVXWV7KP2M4-GfOVEUukt19ucdOkfgF-B2tXiUxaKFNI5aOMvyjei0a8PNPf-oKv9gaa-ZA5X84YEIbSi4JlgvKOBh4YdLJ0vCvUlJK4Xfy09sVGDf52nbHBMEQOt56rHJpYWaIokyLEg6Kx_EAgvEtRhYJm5cb"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Grained Leather Slide</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-042</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$18.90</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$226.80</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+<!-- Product Card 3 (Featured Multi-column Span) -->
+<div class="group hidden xl:flex flex-col md:col-span-2">
+<div class="relative aspect-[16/9] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium wool slippers in aesthetic warehouse setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA1vFl1C0sXHihUIarq9YaKfpXL7b63AeCf0cEe1Evtg94KJGjkrIxBuRUNbtkjLOSkyYcgPYYHg02RxoWJ6OjyDI5nqUQkBjTuarUtwDAgDtopUt5zbExd3DcTvu4CiFnF_1C_JqimWGHHBrQgfmIMCjLIYvXN7WIAgGf0pae37tPlmilAF1Wlzba1VhldbPGk2unHS0ic-9X1Jf7XUIzFVguNh4UZSInceZLzhryH2nM4z3Vg5A7bFSr33yj7DlqrMviW7eLPFyE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex flex-col justify-end p-8">
+<span class="text-[#ffdbd0] text-xs font-bold tracking-[0.2em] mb-2 uppercase">Designer Spotlight</span>
+<h2 class="text-white font-headline text-3xl font-extrabold mb-4">The Arctic Merino Series</h2>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-6 py-2 rounded-md font-bold text-xs">View Series</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="High quality textile hotel style slippers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCsnrGmAClhKELUrF76NaNU280uUF1gJoXaX88Mv4lTyXF9wz9wt7Q6aleRLTPKbqzmXf1eSyfku7z3SVAUQukq6TRB82XtselMZbuBxSPmlsvvCWbKh6fttZX1cpb3U6nCwhDHOzByIhfNMS2exKnshyDLpZ8QJ9vqJo-WyhBhlWuSt_rzUlVunZ54Xyf-6nEF8l69RgJepTZvS7zPX9IjlafTNA5OcLyw5bZmUmFbYV4vOHOZ9I-5E94e52nrneTkMCoeOZw8W74"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Cotton Terry Slide</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-089</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$9.00</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$108.00</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Chic decorative slippers for boutique collection" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXMc6ji1E2GdvNFyvH3nsFXPchV3r_Zc1o5GTrelTbYg4vJuCerEcacZELv_dpjsYE9AJL6MwZAd9qOAGMz8MTtFpR8fWsgzsEHOYu5jGVWCdQcpTR_X03N4LBFKupIUEIoa4P5SElUpbVIpxz7sJWyax3D6qpCEk_SXuocpeTxBCBfmrAxqgdxbbLfLecsBr22gNYdetJJAR3fiYLgECE-13WwXNuB53K9wTj7FfWExATg6VoSMKb4c2DE_wnbagl6WAVjRr5Vy1U"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Silk Satin Scuff</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-112</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$22.00</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$264.00</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+<!-- Additional Cards for 4x4 feel -->
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Classic wool house slippers for women" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_ibW0GKZBgHC0MYi9GYdMW1E5syOvr3gVUO8AvR7xEnPkU9Enu6YdKTDKLSqzvPTakn4GHMy551G9kl3HMahD9Y7fjnI_og9bxhEJL2ZvfK2yj8obTPvqiEokrm_WPYhijgzKbY-litD1UivEOCkLTywTMO80WsdDHX9fH4CjH86V_RzVm2xXCj8tCRD0fxzmxfC_7w5DkMzPvHHTfolknUHj9L4Ti2xAVRWvGqLvYFS-myLwdHIfJfEAbPSCJINJyHpxwfSEl50k"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Woolen Comfort Fit</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-056</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$14.25</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$171.00</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+<div class="group flex flex-col">
+<div class="relative aspect-[4/5] bg-surface-container-low overflow-hidden rounded-lg mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Trendy beach style platform slippers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSNZ3w6cH62rNZaJFJCOehPopu6yfnVelF2yQ0zclUIsjOyyYRdTnfLrctJvut55vsxI1HsKtSZD-ZZCKBzm4FOY6luiXOxTrLCdQRM7lpNlLlpmfg9IuZ5sf0fusut2atGPj6754jW_N34j3E26XG46KNGcIPS5IUbXmabVNw_7eyR1XFSHOP0eByQi4LLnxpCQ4woBnMklGI4vPZNLA2Ek_jCipZeluMnAEQApS7iQwNkd39d17LLqTyIIZZ4jQXQksN20FIZscm"/>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-lg text-on-surface">Platform Beach Slide</h3>
+<span class="text-[10px] font-mono text-slate-400">#WSL-203</span>
+</div>
+<p class="text-xs text-secondary mb-3">Box of 12 Pairs (Size 36-40)</p>
+<div class="flex items-baseline gap-4 mb-4">
+<div>
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Unit Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$11.80</p>
+</div>
+<div class="border-l border-slate-200 pl-4">
+<p class="text-[10px] uppercase tracking-tighter text-slate-400 font-bold">Box Price</p>
+<p class="text-xl font-headline font-bold text-[#000666]">$141.60</p>
+</div>
+</div>
+<button class="w-full bg-[#000666] text-white py-3 font-bold text-xs rounded-md flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">shopping_bag</span>
+              ADD BOX TO CART
+            </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Nav -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center h-16 bg-white dark:bg-slate-950 pb-safe z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.05)] border-t border-slate-200/30">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[10px] font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#000666] dark:text-blue-400 font-bold tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-['Inter'] text-[10px] font-medium">Catalog</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-['Inter'] text-[10px] font-medium">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-600 tap-highlight-transparent" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-['Inter'] text-[10px] font-medium">Account</span>
+</a>
+</nav>
+<!-- FAB Suppression: Contextually hidden as per rules (Listing Page) -->
+</body></html>
