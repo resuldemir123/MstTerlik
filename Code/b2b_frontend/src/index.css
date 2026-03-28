@@ -76,3 +76,13 @@ h1, h2, h3 {
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
+
+@keyframes zoom-slow {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+@keyframes loading-progress {
+  0% { left: -40%; }
+  100% { left: 100%; }
+}
