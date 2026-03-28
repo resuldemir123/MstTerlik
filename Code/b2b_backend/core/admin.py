@@ -58,12 +58,25 @@ class FakeQuerySet(list):
         for obj in self:
             match = True
             for k, v in kwargs.items():
-                attr = 'id' if k == 'pk' else k
-                # If v is a model object, check its id
-                check_val = getattr(v, 'id', v)
-                if getattr(obj, attr, None) != check_val:
-                    match = False
-                    break
+                if "__icontains" in k:
+                    field = k.replace("__icontains", "")
+                    val = getattr(obj, field, None)
+                    if val is None or str(v).lower() not in str(val).lower():
+                        match = False
+                        break
+                elif "__exact" in k:
+                    field = k.replace("__exact", "")
+                    val = getattr(obj, field, None)
+                    if str(v) != str(val):
+                        match = False
+                        break
+                else:
+                    attr = 'id' if k == 'pk' else k
+                    # If v is a model object, check its id
+                    check_val = getattr(v, 'id', v)
+                    if getattr(obj, attr, None) != check_val:
+                        match = False
+                        break
             if match:
                 results.append(obj)
         qs = FakeQuerySet(results)
@@ -80,7 +93,20 @@ class FakeQuerySet(list):
         return self[0] if len(self) > 0 else None
 
     def exclude(self, *args, **kwargs): return self
-    def order_by(self, *args): return self
+    def order_by(self, *args):
+        if not args: return self
+        results = list(self)
+        for arg in reversed(args):
+            reverse = False
+            field = arg
+            if arg.startswith('-'):
+                reverse = True
+                field = arg[1:]
+            # Sort by the field, handle None values
+            results.sort(key=lambda x: str(getattr(x, field, '') or ''), reverse=reverse)
+        qs = FakeQuerySet(results)
+        qs.model = self.model
+        return qs
     def select_related(self, *args): return self
     def prefetch_related(self, *args): return self
     def count(self): return len(self)
@@ -102,22 +128,28 @@ def make_fake_queryset(results, model_class):
 @admin.register(FirebaseProduct)
 class FirebaseProductAdmin(admin.ModelAdmin):
     list_display = ('code', 'name', 'gender', 'base_price')
+    search_fields = ('code', 'name')
+    list_filter = ('gender',)
     paginator = DummyPaginator
 
     def get_queryset(self, request):
-        db = firestore.client()
-        products = db.collection('products').stream()
-        results = []
-        for p in products:
-            data = p.to_dict()
-            results.append(FirebaseProduct(
-                id=p.id, 
-                code=data.get('code', 'Bilinmiyor'), 
-                name=data.get('name', 'Bilinmiyor'),
-                gender=data.get('gender', ''),
-                base_price=data.get('base_price', 0)
-            ))
-        return make_fake_queryset(results, FirebaseProduct)
+        try:
+            db = firestore.client()
+            products = db.collection('products').stream()
+            results = []
+            for p in products:
+                data = p.to_dict()
+                results.append(FirebaseProduct(
+                    id=p.id, 
+                    code=data.get('code', 'Bilinmiyor'), 
+                    name=data.get('name', 'Bilinmiyor'),
+                    gender=data.get('gender', ''),
+                    base_price=data.get('base_price', 0)
+                ))
+            return make_fake_queryset(results, FirebaseProduct)
+        except Exception as e:
+            print(f"FirebaseProduct Admin Error: {e}")
+            return make_fake_queryset([], FirebaseProduct)
 
     def save_model(self, request, obj, form, change):
         db = firestore.client()
@@ -135,21 +167,32 @@ class FirebaseProductAdmin(admin.ModelAdmin):
 @admin.register(FirebaseOrder)
 class FirebaseOrderAdmin(admin.ModelAdmin):
     list_display = ('id', 'buyer_id', 'total_amount', 'status')
+    list_filter = ('status',)
+    search_fields = ('id', 'buyer_id')
     paginator = DummyPaginator
 
     def get_queryset(self, request):
-        db = firestore.client()
-        orders = db.collection('orders').order_by('created_at', direction=firestore.Query.DESCENDING).stream()
-        results = []
-        for o in orders:
-            data = o.to_dict()
-            results.append(FirebaseOrder(
-                id=o.id,
-                buyer_id=data.get('buyer_id', ''),
-                total_amount=data.get('total_amount', 0),
-                status=data.get('status', 'beklemede')
-            ))
-        return make_fake_queryset(results, FirebaseOrder)
+        try:
+            db = firestore.client()
+            # Try to order by created_at, fall back if index missing
+            try:
+                orders = db.collection('orders').order_by('created_at', direction=firestore.Query.DESCENDING).stream()
+            except Exception:
+                orders = db.collection('orders').stream()
+            
+            results = []
+            for o in orders:
+                data = o.to_dict()
+                results.append(FirebaseOrder(
+                    id=o.id,
+                    buyer_id=data.get('buyer_id', ''),
+                    total_amount=data.get('total_amount', 0),
+                    status=data.get('status', 'beklemede')
+                ))
+            return make_fake_queryset(results, FirebaseOrder)
+        except Exception as e:
+            print(f"FirebaseOrder Admin Error: {e}")
+            return make_fake_queryset([], FirebaseOrder)
 
     def save_model(self, request, obj, form, change):
         db = firestore.client()
@@ -159,19 +202,24 @@ class FirebaseOrderAdmin(admin.ModelAdmin):
 @admin.register(FirebaseUser)
 class FirebaseUserAdmin(admin.ModelAdmin):
     list_display = ('uid', 'email', 'display_name', 'creation_time')
+    search_fields = ('email', 'display_name', 'uid')
     paginator = DummyPaginator
 
     def get_queryset(self, request):
-        users_page = firebase_auth.list_users()
-        results = []
-        for u in users_page.users:
-            results.append(FirebaseUser(
-                uid=u.uid,
-                email=u.email,
-                display_name=u.display_name or 'İsimsiz',
-                creation_time=str(u.user_metadata.creation_timestamp) if u.user_metadata else ''
-            ))
-        return make_fake_queryset(results, FirebaseUser)
+        try:
+            users_page = firebase_auth.list_users()
+            results = []
+            for u in users_page.users:
+                results.append(FirebaseUser(
+                    uid=u.uid,
+                    email=u.email,
+                    display_name=u.display_name or 'İsimsiz',
+                    creation_time=str(u.user_metadata.creation_timestamp) if u.user_metadata else ''
+                ))
+            return make_fake_queryset(results, FirebaseUser)
+        except Exception as e:
+            print(f"FirebaseUser Admin Error: {e}")
+            return make_fake_queryset([], FirebaseUser)
 
     def save_model(self, request, obj, form, change):
         if change:
